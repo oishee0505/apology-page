@@ -483,6 +483,27 @@ p {
   animation-delay: 2s;
 }
 
+.sparkle-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  color: rgba(218, 131, 162, 0.38);
+  text-shadow: 0 0 10px rgba(255, 205, 224, 0.55);
+  animation: twinkle 3.8s ease-in-out infinite;
+}
+
+.s1 { top: 11%; left: 14%; font-size: 0.95rem; animation-delay: 0s; }
+.s2 { top: 18%; right: 16%; font-size: 0.8rem; animation-delay: 1.2s; }
+.s3 { top: 47%; left: 9%; font-size: 0.9rem; animation-delay: 0.6s; }
+.s4 { top: 58%; right: 11%; font-size: 0.85rem; animation-delay: 2s; }
+.s5 { bottom: 18%; left: 22%; font-size: 1rem; animation-delay: 1.6s; }
+.s6 { bottom: 14%; right: 24%; font-size: 0.78rem; animation-delay: 2.8s; }
+
 @keyframes screenFade {
   from {
     opacity: 0;
@@ -566,6 +587,25 @@ p {
 
   50% {
     transform: translate(20px, -14px);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translateY(0) scale(0.9) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.72;
+    transform: translateY(-5px) scale(1.07) rotate(6deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle {
+    animation: none;
+    opacity: 0.28;
   }
 }
 
