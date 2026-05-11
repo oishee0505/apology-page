@@ -24,6 +24,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
   font-family: "Inter", system-ui, sans-serif;
   background:
     radial-gradient(circle at 12% 8%, rgba(255, 215, 226, 0.85), transparent 28%),
@@ -41,12 +42,14 @@ button {
 .app {
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .screen {
   display: none;
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   padding: 22px;
   align-items: center;
   justify-content: center;
