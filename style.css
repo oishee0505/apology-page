@@ -580,6 +580,12 @@ p {
     padding: 12px;
     align-items: center;
     justify-content: center;
+    overflow-y: auto;
+  }
+
+  #ticketScreen {
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .ticket-shell {
@@ -633,6 +639,12 @@ p {
     padding: 9px;
     align-items: center;
     justify-content: center;
+    overflow-y: auto;
+  }
+
+  #ticketScreen {
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .ticket-shell {
