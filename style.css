@@ -412,14 +412,11 @@ p {
       rgba(239, 191, 208, 0.16) 34px
     );
   border: 1px solid rgba(239, 191, 208, 0.55);
-  filter: url(#noise);
 }
 
 .letter-body {
   max-width: 760px;
   margin: 0 auto;
-  /* remove filter inheritance from letter-paper */
-  filter: none;
 }
 
 .letter-body p {
@@ -584,14 +581,6 @@ p {
   font-size: 1.3rem;
   opacity: 0;
   animation: petalFall linear infinite;
-}
-
-.confetti span.cp {
-  color: #e8a0bf;
-}
-
-.confetti span.ch {
-  color: var(--rose-4);
 }
 
 /* distribute 12 pieces across the screen with varied timing */

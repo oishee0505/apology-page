@@ -8,15 +8,6 @@
 </head>
 
 <body>
-  <!-- Paper grain texture filter -->
-  <svg width="0" height="0" style="position:absolute">
-    <filter id="noise">
-      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-      <feColorMatrix type="saturate" values="0"/>
-      <feBlend in="SourceGraphic" mode="multiply"/>
-    </filter>
-  </svg>
-
   <div class="bg-glow"></div>
 
   <main class="app">
@@ -62,7 +53,7 @@
           <div class="flow-line"></div>
           <div class="flow-step float-alt-one">📝</div>
           <div class="flow-line"></div>
-          <div class="flow-step float-alt-two">🤍</div>
+          <div class="flow-step float-alt-two">❤️</div>
         </section>
 
         <section class="letter-card" id="letterCard">
@@ -167,7 +158,7 @@
 
         <!-- warmer ending card with closing line -->
         <section class="ending-card">
-          <p class="ending-line">thank you for reading this 🤍</p>
+          <p class="ending-line">thank you for reading this💕</p>
           <div class="ending-hearts">
             <span>♥</span>
             <span>♥</span>
@@ -180,17 +171,17 @@
 
     <!-- CLOSED -->
     <section class="screen" id="closedScreen">
-      <!-- falling petal confetti — using text chars so CSS color applies -->
+      <!-- falling petal confetti -->
       <div class="confetti" aria-hidden="true">
-        <span class="cp">✿</span><span class="ch">♥</span><span class="cp">✿</span><span class="ch">♥</span>
-        <span class="cp">✿</span><span class="ch">♥</span><span class="cp">✿</span><span class="ch">♥</span>
-        <span class="cp">✿</span><span class="ch">♥</span><span class="cp">✿</span><span class="ch">♥</span>
+        <span>🌸</span><span>🩷</span><span>🌸</span><span>💗</span>
+        <span>🌸</span><span>🩷</span><span>🌸</span><span>💗</span>
+        <span>🌸</span><span>🩷</span><span>🌸</span><span>💗</span>
       </div>
 
       <div class="ticket-shell closed-shell">
         <div class="portal-tab centered">ticket resolved</div>
 
-        <h1>i love you🩷</h1>
+        <h1>i love you🩵</h1>
 
         <img class="final-gif"
         src="https://media.tenor.com/D6HDHJLAqb4AAAAi/dudu-bubu-dudu.gif"
@@ -199,6 +190,7 @@
         <p class="status-update">ticket status updated:
             back to being fun and perfect together!!</p>
 
+        <!-- demoted to text-link so it doesn't compete with the celebration -->
         <button class="text-link-btn" id="backBtn">↩ read again</button>
       </div>
     </section>
