@@ -114,6 +114,11 @@ button {
   text-align: center;
 }
 
+.intro-shell {
+  display: flex;
+  flex-direction: column;
+}
+
 .ticket-title-row {
   position: relative;
   z-index: 1;
@@ -567,6 +572,11 @@ p {
     align-items: flex-start;
   }
 
+  #introScreen {
+    min-height: 100dvh;
+    align-items: stretch;
+  }
+
   .ticket-shell {
     border-radius: 26px;
   }
@@ -578,6 +588,12 @@ p {
 
   .intro-hero {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .intro-shell {
+    min-height: calc(100dvh - 24px);
+    justify-content: space-between;
   }
 
   .side-img {
@@ -590,6 +606,10 @@ p {
 @media (max-width: 500px) {
   .screen {
     padding: 9px;
+  }
+
+  #introScreen {
+    min-height: 100dvh;
   }
 
   .ticket-shell {
@@ -612,6 +632,18 @@ p {
     margin-bottom: 18px;
   }
 
+  .intro-shell {
+    min-height: calc(100dvh - 18px);
+    padding-top: 14px;
+    padding-bottom: 16px;
+  }
+
+  .intro-hero {
+    flex: 1;
+    align-content: center;
+    gap: 12px;
+  }
+
   .eyebrow {
     font-size: 0.62rem;
     letter-spacing: 0.13em;
@@ -624,7 +656,7 @@ p {
 
   .intro-shell .primary-btn,
   .closed-shell .secondary-btn {
-    margin-top: 22px;
+    margin-top: 16px;
   }
 
   .soft-pill {
