@@ -572,11 +572,6 @@ p {
     align-items: flex-start;
   }
 
-  #introScreen {
-    min-height: 100dvh;
-    align-items: stretch;
-  }
-
   .ticket-shell {
     border-radius: 26px;
   }
@@ -610,8 +605,7 @@ p {
   }
 
   .intro-shell {
-    min-height: calc(100dvh - 24px);
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .side-img {
@@ -624,10 +618,6 @@ p {
 @media (max-width: 500px) {
   .screen {
     padding: 9px;
-  }
-
-  #introScreen {
-    min-height: 100dvh;
   }
 
   .ticket-shell {
@@ -651,13 +641,11 @@ p {
   }
 
   .intro-shell {
-    min-height: calc(100dvh - 18px);
     padding-top: 14px;
     padding-bottom: 16px;
   }
 
   .intro-hero {
-    flex: 1;
     display: grid;
     grid-template-areas: "left center right";
     align-items: center;
