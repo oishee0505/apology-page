@@ -57,6 +57,8 @@ button {
 
 .screen.active {
   display: flex;
+  align-items: center;
+  justify-content: center;
   animation: screenFade 0.45s ease both;
 }
 
@@ -611,8 +613,12 @@ p {
 
 @media (max-width: 880px) {
   .screen {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100dvh;
     padding: 12px;
     align-items: center;
+    justify-content: center;
   }
 
   .ticket-shell {
@@ -660,8 +666,12 @@ p {
 
 @media (max-width: 500px) {
   .screen {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100dvh;
     padding: 9px;
     align-items: center;
+    justify-content: center;
   }
 
   .ticket-shell {
