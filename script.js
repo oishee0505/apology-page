@@ -33,5 +33,5 @@ closeBtn.addEventListener("click", () => {
 });
 
 backBtn.addEventListener("click", () => {
-  showScreen(ticketScreen);
+  showScreen(introScreen);
 });

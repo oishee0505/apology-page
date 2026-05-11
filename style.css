@@ -55,6 +55,7 @@ button {
   justify-content: center;
 }
 
+/* FIX: overflow-y: auto so expanded letter can scroll */
 .screen.active {
   display: flex;
   align-items: center;
@@ -71,7 +72,7 @@ button {
   border-radius: 32px;
   box-shadow: var(--shadow);
   padding: clamp(20px, 4vw, 38px);
-  overflow: hidden;
+  /* FIX: removed overflow: hidden — was clipping expanded letter content */
 }
 
 .ticket-shell::before {
@@ -81,6 +82,8 @@ button {
   border: 1px dashed rgba(217, 120, 153, 0.22);
   border-radius: 24px;
   pointer-events: none;
+  /* Keep the dashed border visible but don't let it clip content */
+  z-index: 0;
 }
 
 .ticket-top {
@@ -177,7 +180,6 @@ p {
   object-fit: contain;
   margin: 0 auto;
   filter: drop-shadow(0 14px 22px rgba(193, 95, 128, 0.14));
-  opacity: 1.00;
 }
 
 .float-one {
@@ -227,6 +229,11 @@ p {
 .primary-btn:hover,
 .secondary-btn:hover {
   transform: translateY(-2px);
+}
+
+/* Safe area padding for iPhone home bar */
+.closed-shell .secondary-btn {
+  margin-bottom: max(16px, env(safe-area-inset-bottom));
 }
 
 .mini-flow {
@@ -291,6 +298,7 @@ p {
   animation: softSlideUp 0.65s ease both;
 }
 
+/* FIX: hover/active states on letter toggle for clear interactivity */
 .letter-toggle {
   width: 100%;
   min-height: 82px;
@@ -303,6 +311,16 @@ p {
   align-items: center;
   text-align: left;
   cursor: pointer;
+  border-radius: 26px;
+  transition: background 0.2s ease;
+}
+
+.letter-toggle:hover {
+  background: rgba(255, 240, 246, 0.5);
+}
+
+.letter-toggle:active {
+  background: rgba(255, 240, 246, 0.85);
 }
 
 .letter-toggle span {
@@ -335,14 +353,19 @@ p {
   text-transform: uppercase;
 }
 
+/* FIX: grid-template-rows trick — smooth open AND close, no sluggish max-height hack */
 .letter-panel {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+
+.letter-panel-inner {
   overflow: hidden;
-  transition: max-height 0.38s ease;
 }
 
 .letter-card.open .letter-panel {
-  max-height: 2800px;
+  grid-template-rows: 1fr;
 }
 
 .letter-paper {
@@ -367,9 +390,10 @@ p {
 
 .letter-body p {
   margin-bottom: 18px;
+  /* FIX: slightly larger + more breathing room for readability */
   color: #2f2024;
-  font-size: clamp(0.96rem, 1.9vw, 1.04rem);
-  line-height: 1.72;
+  font-size: clamp(1rem, 1.9vw, 1.06rem);
+  line-height: 1.78;
 }
 
 .letter-body p:first-child {
@@ -387,13 +411,29 @@ p {
   border-top: 1px solid rgba(239, 191, 208, 0.55);
 }
 
-.signature {
+/* Staggered entrance animation for letter paragraphs when panel opens */
+.letter-card.open .letter-body p {
+  animation: softSlideUp 0.45s ease both;
+}
+
+.letter-card.open .letter-body p:nth-child(1) { animation-delay: 0.05s; }
+.letter-card.open .letter-body p:nth-child(2) { animation-delay: 0.1s; }
+.letter-card.open .letter-body p:nth-child(3) { animation-delay: 0.15s; }
+.letter-card.open .letter-body p:nth-child(4) { animation-delay: 0.2s; }
+.letter-card.open .letter-body p:nth-child(5) { animation-delay: 0.25s; }
+.letter-card.open .letter-body p:nth-child(6) { animation-delay: 0.3s; }
+.letter-card.open .letter-body p:nth-child(7) { animation-delay: 0.35s; }
+.letter-card.open .letter-body p:nth-child(8) { animation-delay: 0.4s; }
+
+/* Signature paragraph — last paragraph styled distinctly */
+.letter-body p.signature {
   margin-top: 24px;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   font-family: "Playfair Display", serif;
-  font-size: 1.15rem !important;
-  color: var(--rose-4) !important;
-  text-align: right;
+  font-size: 1.05rem;
+  color: var(--soft-brown);
+  border-top: 1px solid rgba(239, 191, 208, 0.55);
+  padding-top: 18px;
 }
 
 .ending-card {
@@ -409,6 +449,7 @@ p {
   margin-bottom: 18px;
 }
 
+/* FIX: filled ♥ hearts */
 .ending-hearts span {
   color: var(--rose-3);
   font-size: 1.55rem;
@@ -429,6 +470,7 @@ p {
 
 .closed-shell {
   text-align: center;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
 }
 
 .closed-shell h1 {
@@ -580,11 +622,14 @@ p {
     padding: 12px;
     align-items: center;
     justify-content: center;
-    overflow-y: visible;
+    /* FIX: was overflow-y: visible which doesn't scroll */
+    overflow-y: auto;
   }
+
   #ticketScreen {
     align-items: flex-start;
     justify-content: flex-start;
+    /* FIX: bounded scrollable container for expanded letter */
     overflow-y: auto;
     height: 100dvh;
   }
@@ -639,7 +684,7 @@ p {
     padding: 9px;
     align-items: center;
     justify-content: center;
-    overflow-y: visible;
+    overflow-y: auto;
   }
 
   #ticketScreen {
@@ -755,9 +800,10 @@ p {
     border-radius: 17px;
   }
 
+  /* FIX: bumped up from 0.9rem — easier to read on small screens */
   .letter-body p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.7;
     margin-bottom: 15px;
   }
 
@@ -772,8 +818,9 @@ p {
     padding-top: 15px;
   }
 
-  .signature {
-    font-size: 1rem !important;
+  .letter-body p.signature {
+    font-size: 1rem;
+    padding-top: 15px;
   }
 
   .primary-btn,
