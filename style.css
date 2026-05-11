@@ -60,6 +60,7 @@ button {
   align-items: center;
   justify-content: center;
   animation: screenFade 0.45s ease both;
+  overflow-y: auto;
 }
 
 .ticket-shell {
@@ -581,10 +582,11 @@ p {
     justify-content: center;
     overflow-y: visible;
   }
-
   #ticketScreen {
     align-items: flex-start;
     justify-content: flex-start;
+    overflow-y: auto;
+    height: 100dvh;
   }
 
   .ticket-shell {
@@ -643,6 +645,8 @@ p {
   #ticketScreen {
     align-items: flex-start;
     justify-content: flex-start;
+    overflow-y: auto;
+    height: 100dvh;
   }
 
   .ticket-shell {
