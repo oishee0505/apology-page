@@ -574,13 +574,12 @@ p {
 
 @media (max-width: 880px) {
   .screen {
-    height: 100vh;
-    height: 100dvh;
+    height: auto;
     min-height: 100dvh;
     padding: 12px;
     align-items: center;
     justify-content: center;
-    overflow-y: auto;
+    overflow-y: visible;
   }
 
   #ticketScreen {
@@ -633,13 +632,12 @@ p {
 
 @media (max-width: 500px) {
   .screen {
-    height: 100vh;
-    height: 100dvh;
+    height: auto;
     min-height: 100dvh;
     padding: 9px;
     align-items: center;
     justify-content: center;
-    overflow-y: auto;
+    overflow-y: visible;
   }
 
   #ticketScreen {
