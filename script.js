@@ -14,7 +14,6 @@ function showScreen(screenToShow) {
   [introScreen, ticketScreen, closedScreen].forEach((screen) => {
     screen.classList.remove("active");
   });
-
   screenToShow.classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -25,7 +24,8 @@ openBtn.addEventListener("click", () => {
 
 letterToggle.addEventListener("click", () => {
   const isOpen = letterCard.classList.toggle("open");
-  letterIcon.textContent = isOpen ? "close" : "open";
+  // Arrow rotates 90deg when open, returns when closed — handled purely in CSS
+  letterIcon.classList.toggle("rotated", isOpen);
 });
 
 closeBtn.addEventListener("click", () => {
