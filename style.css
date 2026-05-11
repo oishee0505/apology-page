@@ -569,7 +569,7 @@ p {
 @media (max-width: 880px) {
   .screen {
     padding: 12px;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .ticket-shell {
@@ -618,6 +618,7 @@ p {
 @media (max-width: 500px) {
   .screen {
     padding: 9px;
+    align-items: center;
   }
 
   .ticket-shell {
